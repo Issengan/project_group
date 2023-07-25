@@ -46,4 +46,3 @@ def display_cash_scenarios(cash_on_hand_file):
                 output += "[CASH DEFICIT] DAY: {}, AMOUNT: USD{}\n".format(i + 1, int(cash_deficit))
 
     return output
-    dcdfdffee
