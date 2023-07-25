@@ -9,7 +9,7 @@ def read_csv_file(file_path):
         for row in csv_reader:
             data.append(dict(zip(headers, row)))
     return data
-
+hiiiiiiii
 # Function to check profit and loss scenarios
 def display_profit_loss_scenarios(profit_loss_file):
     profit_loss_data = read_csv_file(profit_loss_file)
