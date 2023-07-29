@@ -71,11 +71,36 @@ def display_cash_on_scearios(cash_on_hand_file):
             increasing_cash = false
             break 
 
+        # calculate the cash surplus for the current day
         cash_surplus = current_cash - previous_cash 
 
+        # update the highest_cash_surplus_day and highest_cash_surplus_amount if needed 
         if cash_surplus > highest_cash_surplus_amount: 
             highest_cash_surplus_day = i 
             highest_cash_surplus_amount = cash_surplus 
+
+    # Check if cash on hand increases day after day 
+    if increasing_cash:
+
+        # append the relevant output to the output string if cash increase day after day
+        output += "[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n"
+        output += "[HIGHEST CASH SURPLUS] DAY: {}, AMOUNT: USD{}\n".format(highest_cash_surplus_day, int(highest_cash_surplus_amount))
+
+    else: 
+
+        # iterate through the cash_data list excluding the first and last elements
+        for i in range(1, len(cash_data) - 1): 
+
+            current_cash = float(cash_data[i]['Cash On Hand']) 
+            previous_cash = float(cash_data[i - 1]['Cash On Hand']) 
+
+            if current_cash , previous_cash: 
+
+                cash_deficit = previous_cash - current_cash 
+
+                output += "[CASH DEFICIT] DAY: {}, AMOUNT: USD{}\n".format(i + 1, int(cash_deficit))
+
+    return output 
 
 
                            
