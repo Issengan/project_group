@@ -19,5 +19,15 @@ def read_csv_file(file_path):
         # Create a csv_reader object to read the file 
         csv_reader = csv.reader(csv_file) 
  
+  # Read the headers (first row) from the CSV file and store them in the headers variable 
+        headers = next(csv_reader) 
+ 
+        # Iterate through the remaining rows in the CSV file 
+        for row in csv_reader: 
+            # Convert each row into a dictionary using the headers as keys 
+            data.append(dict(zip(headers, row))) 
+ 
+    # Return the list of dictionaries containing the data 
+    return data 
 
   
