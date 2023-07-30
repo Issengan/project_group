@@ -91,15 +91,20 @@ def display_cash_on_scearios(cash_on_hand_file):
         # iterate through the cash_data list excluding the first and last elements
         for i in range(1, len(cash_data) - 1): 
 
+            # convert the 'Cash On Hand' values to float for comparison
             current_cash = float(cash_data[i]['Cash On Hand']) 
             previous_cash = float(cash_data[i - 1]['Cash On Hand']) 
 
+            # check if the current cash value is less than the previous cash value
             if current_cash , previous_cash: 
 
+                # calculate the cash deficit for the current day
                 cash_deficit = previous_cash - current_cash 
 
+                # append the relevant output to the output string if cash deficit is found
                 output += "[CASH DEFICIT] DAY: {}, AMOUNT: USD{}\n".format(i + 1, int(cash_deficit))
 
+    # return the final output string
     return output 
 
 
