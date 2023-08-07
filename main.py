@@ -12,15 +12,15 @@ def main():
     4. Write the outputs of all scenarios to the 'summary_report.txt' file.
     """
     # Find highest overhead percentage
-    overheads_file = "C:/project_group/csv_reports/Overheads.csv"
+    overheads_file = "../project_group/csv_reports/Overheads.csv"
     highest_overhead_output = find_highest_overhead_percentage(overheads_file)
 
     # Display cash scenarios
-    cash_on_hand_file = "C:/project_group/csv_reports/Cash_on_Hand.csv"
+    cash_on_hand_file = "../project_group/csv_reports/Cash_on_Hand.csv"
     cash_output = display_cash_scenarios(cash_on_hand_file)
 
     # Display profit and loss scenarios
-    profit_loss_file = "C:/project_group/csv_reports/Profits_and_Loss.csv"
+    profit_loss_file = "../project_group/csv_reports/Profits_and_Loss.csv"
     profit_loss_output = display_profit_loss_scenarios(profit_loss_file)
 
     with open("summary_report.txt", "w") as file:
