@@ -88,7 +88,8 @@ def display_profit_loss_scenarios(profit_loss_file):
             if current_net_profit < previous_net_profit: 
                 # Calculate the net profit deficit for the current day 
                 net_profit_deficit = previous_net_profit - current_net_profit
-                # Append the relevant output to the output string if net profit deficit is found 
+                
+# Append the relevant output to the output string if net profit deficit is found 
                 output += "[PROFIT DEFICIT] DAY: {}, AMOUNT: USD{}\n".format(i + 1, int(net_profit_deficit)) 
 
     # Return the final output string     
