@@ -3,7 +3,6 @@ import csv
 
 # function to read a CSV file and return the data as a list of dictionaries 
 def read_csv_file(file_path):
-
     """
     Read a CSV file and return the data as a list of dictionaries. 
 
@@ -13,7 +12,6 @@ def read_csv_file(file_path):
     Returns: 
         list: A list of dictionaries containing the data from the CSV file.
     """
-
     # create an empty list to store the data 
     data = [] 
 
@@ -35,7 +33,6 @@ def read_csv_file(file_path):
 
 # function to check cash scenarios
 def display_cash_on_scearios(cash_on_hand_file): 
-
     """
     Check cash scenarios based on the data from the CSV file
 
@@ -45,7 +42,6 @@ def display_cash_on_scearios(cash_on_hand_file):
     Returns:
         str: A formatted string describing the cash scenarios. 
     """
-
     # read the CSV file and store the data in the cash_data list of dictionaries
     cash_data = read_csv_file(cash_on_hand_file) 
 
@@ -59,14 +55,12 @@ def display_cash_on_scearios(cash_on_hand_file):
 
     # iterate through the cash_data list starting from the second element (index 1)
     for i in range(1, len(cash_data)): 
-
         # convert the 'Cash On Hand' values to float for comparison
         current_cash = float(cash_data[i]['Cash On Hand'])
         previous_cash = float(cash_data[i - 1]['Cash On Hand']) 
 
         # check if the current cash value is less than or equal to the previous cash value 
         if current_cash <= previous_cash: 
-
             # set increasing_cash to False if the the condition is met
             increasing_cash = false
             break 
@@ -81,26 +75,21 @@ def display_cash_on_scearios(cash_on_hand_file):
 
     # Check if cash on hand increases day after day 
     if increasing_cash:
-
         # append the relevant output to the output string if cash increase day after day
         output += "[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n"
         output += "[HIGHEST CASH SURPLUS] DAY: {}, AMOUNT: USD{}\n".format(highest_cash_surplus_day, int(highest_cash_surplus_amount))
-
     else: 
-
         # iterate through the cash_data list excluding the first and last elements
         for i in range(1, len(cash_data) - 1): 
-
             # convert the 'Cash On Hand' values to float for comparison
             current_cash = float(cash_data[i]['Cash On Hand']) 
             previous_cash = float(cash_data[i - 1]['Cash On Hand']) 
 
             # check if the current cash value is less than the previous cash value
-            if current_cash , previous_cash: 
-
+            if current_cash < previous_cash: 
                 # calculate the cash deficit for the current day
                 cash_deficit = previous_cash - current_cash 
-
+                
                 # append the relevant output to the output string if cash deficit is found
                 output += "[CASH DEFICIT] DAY: {}, AMOUNT: USD{}\n".format(i + 1, int(cash_deficit))
 
