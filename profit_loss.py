@@ -1,5 +1,6 @@
 #import the csv file
 import csv 
+
 # Function to read a CSV file and return the data as a list of dictionaries 
 def read_csv_file(file_path): 
     """ 
@@ -13,10 +14,12 @@ def read_csv_file(file_path):
     """ 
     # Create an empty list to store the data 
     data = [] 
+    
     # Open the CSV file in read mode  
     with open(file_path, 'r') as csv_file: 
         # Create a csv_reader object to read the file 
         csv_reader = csv.reader(csv_file)
+        
         # Read the headers (first row) from the CSV file and store them in the headers variable 
         headers = next(csv_reader) 
         
@@ -44,8 +47,10 @@ def display_profit_loss_scenarios(profit_loss_file):
     
    # Initialize the output variable as an empty string 
     output = "" 
+    
     # Scenario 1: Check if net profit is positive for all days 
     positive_net_profit = all(float(row['Net Profit']) >= 0 for row in profit_loss_data) 
+    
     # Check if net profit is positive for all days 
     if positive_net_profit: 
         # Append the relevant output to the output string if net profit is positive for all days 
@@ -58,14 +63,16 @@ def display_profit_loss_scenarios(profit_loss_file):
             # Convert the 'Net Profit' values to float for comparison 
             current_net_profit = float(profit_loss_data[i]['Net Profit']) 
             previous_net_profit = float(profit_loss_data[i - 1]['Net Profit']) 
+            
             # Check if the current net profit is higher than the previous net profit 
             if current_net_profit > previous_net_profit:
                 # Calculate the net profit surplus for the current day
                 net_profit_surplus = current_net_profit - previous_net_profit  
-            # Update the highest_surplus_day and highest_surplus_amount if needed 
-            if net_profit_surplus > highest_surplus_amount: 
-                    highest_surplus_day = i 
-                    highest_surplus_amount = net_profit_surplus 
+                
+                # Update the highest_surplus_day and highest_surplus_amount if needed 
+                if net_profit_surplus > highest_surplus_amount: 
+                   highest_surplus_day = i 
+                   highest_surplus_amount = net_profit_surplus 
                 
         # Check if there is a highest net profit surplus and append the relevant output             
         if highest_surplus_day is not None: 
