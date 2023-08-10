@@ -26,7 +26,10 @@ def main():
     profit_loss_file = cwd / "csv_reports" / "Profits_and_Loss.csv"
     profit_loss_output = display_profit_loss_scenarios(profit_loss_file)
 
+    #Open the "summary_report.txt" file in write mode to save the analysis outputs
     with open("summary_report.txt", "w") as file:
+        #Write the highest overhead output, cash output, and profit-loss output to the file
+        #Each output is written on a new line to maintain separation and readability
         file.write(highest_overhead_output + "\n")
         file.write(cash_output)
         file.write(profit_loss_output)
